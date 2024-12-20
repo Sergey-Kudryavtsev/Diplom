@@ -1,6 +1,7 @@
 package com.example.course_work_phat_store.controllers;
 
 import com.example.course_work_phat_store.model.secuirty.ApplicationUser;
+import com.example.course_work_phat_store.model.secuirty.Role;
 import com.example.course_work_phat_store.repositories.ApplicationUserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -38,7 +39,9 @@ public class UserController {
 
         Optional<ApplicationUser> loadedUser = applicationUserRepository.findApplicationUserByProfileEmail(email);
         if (!loadedUser.isPresent()) {
-            ApplicationUser applicationUser = new ApplicationUser(email, passwordEncoder.encode(password), phone, address);
+            Role role = email.equals("admin@ya.ru") ? Role.ROLE_ADMIN : Role.ROLE_USER;
+
+            ApplicationUser applicationUser = new ApplicationUser(email, passwordEncoder.encode(password), phone, address, role);
             applicationUserRepository.save(applicationUser);
             return "redirect:/";
         } else {

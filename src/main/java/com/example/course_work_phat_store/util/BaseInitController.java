@@ -10,6 +10,7 @@ import com.example.course_work_phat_store.model.entities.stock.entities.Category
 import com.example.course_work_phat_store.model.entities.stock.entities.Product;
 import com.example.course_work_phat_store.model.entities.stock.entities.StockPosition;
 import com.example.course_work_phat_store.model.secuirty.ApplicationUser;
+import com.example.course_work_phat_store.model.secuirty.Role;
 import com.example.course_work_phat_store.repositories.ApplicationUserRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -151,8 +152,8 @@ public class BaseInitController {
     }
 
     private void usersInit() {
-        ApplicationUser admin = new ApplicationUser("admin@ya.ru", encoder.encode("admin"),"+71234567890","ул.Пушкина д.1");
-        ApplicationUser user = new ApplicationUser("user@ya.ru", encoder.encode("user"),"+81234567890","ул.Гоголя д.2");
+        ApplicationUser admin = new ApplicationUser("admin@ya.ru", encoder.encode("admin"),"+71234567890","ул.Пушкина д.1", Role.ROLE_ADMIN);
+        ApplicationUser user = new ApplicationUser("user@ya.ru", encoder.encode("user"),"+81234567890","ул.Гоголя д.2", Role.ROLE_USER);
 
         appUserRepo.save(admin);
         appUserRepo.save(user);

@@ -37,10 +37,10 @@ public class ApplicationUser extends BaseEntity {
     @JoinColumn(name = "user_id")
     private Profile profile;
 
-    public ApplicationUser(String email, String password, String phone, String address) {
+    public ApplicationUser(String email, String password, String phone, String address, Role role) {
         this.username = "";
         this.password = password;
-        this.role = ROLE_USER;
+        this.role = role;
         this.phone = phone; // Сохраняем телефон
         this.address = address; // Сохраняем адрес
         this.profile = Profile.builder()
