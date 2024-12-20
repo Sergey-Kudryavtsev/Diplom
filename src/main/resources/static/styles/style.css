@@ -1,0 +1,346 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 100vh;
+}
+
+header {
+    color: #fff;
+    text-align: center;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+
+/* Стиль для логического блока */
+.logical_block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #f8f8f8; /* Цвет фона заголовка */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень под заголовком */
+}
+
+.cart-count {
+    position: absolute; /* Позиционирование для наложения на иконку */
+    top: -10px; /* Поднимаем счетчик немного выше */
+    right: -10px; /* Сдвигаем счетчик внутрь иконки, если нужно */
+    background-color: red; /* Цвет фона для выделения */
+    color: white; /* Цвет текста */
+    border-radius: 50%; /* Закругленный угол */
+    padding: 1px 3px; /* Отступы внутри */
+    font-size: 12px; /* Размер шрифта */
+    min-width: 11px; /* Минимальная ширина, если счетчик больше 9 */
+    height: 20px; /* Высота счетчика для выравнивания */
+    text-align: center; /* Выравнивание текста по центру */
+    line-height: 20px; /* Вертикальное центрирование текста */
+}
+
+/* Стиль для значков навигации */
+.nav_icon {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* Стиль для изображений значков */
+.nav_icon img {
+    width: 50px; /* Ширина значка */
+    height: 50px; /* Высота значка */
+    margin: 0 5px; /* Отступ между значками */
+    transition: transform 0.2s; /* Плавный переход */
+}
+
+/* Эффект при наведении на значки */
+.nav_icon img:hover {
+    transform: scale(1.1); /* Увеличение значка при наведении */
+}
+
+/* Стиль для логотипа */
+.phat_logo img {
+    max-width: 150px; /* Максимальная ширина логотипа */
+    height: auto; /* Автоматическая высота */
+}
+
+/* Стиль для значка корзины и администратора */
+.nav_icon a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Стиль для изображения при наведении */
+.nav_icon a:hover img {
+    opacity: 0.8; /* Уменьшение яркости при наведении */
+}
+
+.logo {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo img {
+    max-width: 100%; /* Адаптивное изображение */
+    height: auto; /* Сохранение пропорций */
+}
+
+/*Search*/
+.search {
+    display: flex; /* Используем flexbox для размещения элементов в строку */
+    align-items: center; /* Выравнивание по центру по вертикали */
+    justify-content: center; /* Выравнивание по центру по горизонтали, можно настроить */
+    margin: 20px 0; /* Отступы сверху и снизу */
+}
+
+.search select, .search input[type="text"], .search input[type="submit"] {
+    margin: 0 5px; /* Отступы между элементами */
+    padding: 5px; /* Внутренние отступы для всех элементов */
+}
+
+.search input[type="text"] {
+    width: 100px; /* Ширина полей для цены, можно подстроить под дизайн */
+}
+
+.search input[type="submit"] {
+    background-color: #4CAF50; /* Цвет кнопки поиск */
+    color: white; /* Цвет текста кнопки */
+    border: none; /* Убираем границу */
+    cursor: pointer; /* Указатель при наведении */
+}
+
+.search input[type="submit"]:hover {
+    background-color: #45a049; /* Цвет кнопки при наведении */
+}
+
+/*Product*/
+hr {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+.main {
+    display: inline-grid;
+    justify-content: space-between;
+    font-size: 18pt;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.shop {
+    padding:15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.category {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s;
+    width: 220px; /* Ширина категории */
+    height: 200px;
+    /*height: 180px;*/
+}
+
+.category:hover {
+    transform: scale(1.05);
+}
+
+.category_img {
+    display: flex;
+    justify-content: center; /* Центрируем изображение по горизонтали */
+    align-items: center; /* Центрируем изображение по вертикали */
+    height: 150px; /* Фиксированная высота для изображений */
+}
+
+.category_img img {
+    /*padding: 20px;*/
+    /*width: 30%;*/
+    /*height: 30%;*/
+    max-width: 100%; /* Ограничиваем ширину изображений */
+    max-height: 100%; /* Ограничиваем высоту изображений */
+    object-fit: contain; /* Подгоняем изображение по размеру блока */
+
+}
+
+.category_caption {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+.controls {
+    display: flex; /* Используем Flexbox для выравнивания элементов */
+    justify-content: center;
+    align-items: center; /* Центрируем элементы по вертикали */
+    gap: 20px; /* Отступы между элементами */
+    margin-top: 20px; /* Отступ сверху для отделения от других элементов */
+}
+
+.button_group {
+    display: flex; /* Создает flex-контейнер для кнопок */
+    gap: 10px; /* Отступ между кнопками */
+}
+
+button {
+    padding: 10px 20px; /* Добавление внутреннего отступа для кнопок */
+    font-size: 12pt; /* Размер шрифта кнопок */
+    border: none; /* Убираем стандартную рамку */
+    border-radius: 5px; /* Скругление углов */
+    background-color: #007bff; /* Цвет фона кнопок */
+    color: white; /* Цвет текста на кнопках */
+    cursor: pointer; /* Указатель при наведении на кнопки */
+    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Цвет кнопок при наведении */
+}
+
+/* Стили для выпадающих списков */
+select {
+    padding: 10px; /* Внутренние отступы для выпадающих списков */
+    border: 1px solid #ddd; /* Рамка для выпадающего списка */
+    border-radius: 5px; /* Скругление углов */
+    font-size: 9pt; /* Размер шрифта */
+    background-color: #f8f9fa; /* Цвет фона */
+    color: #333; /* Цвет текста */
+}
+
+/*Menu*/
+.hamburger {
+    font-size: 30px;
+    cursor: pointer;
+    padding: 15px;
+    color: white;
+    position: relative;
+}
+.hamburger img {
+    cursor: pointer;
+}
+
+.menu {
+    display: none; /* Скрываем меню по умолчанию */
+    position: absolute;
+    top: 70px;
+    left: 100px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    border-bottom: 1px solid #ccc;
+}
+
+.menu li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.menu li a:hover {
+    background-color: #f0f0f0;
+}
+
+/*Cart*/
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+.cart_img {
+    width: 50px; /* Задайте желаемую ширину */
+    height: auto; /* Сохраните пропорции */
+}
+
+form {
+    display: inline; /* Размещаем кнопки в одной строке */
+}
+
+input[type="submit"] {
+    background-color: #4CAF50; /* Зеленый фон */
+    color: white; /* Белый текст */
+    border: none; /* Убираем рамки */
+    padding: 8px 12px; /* Отступы вокруг текста */
+    margin: 4px 0; /* Внешние отступы */
+    cursor: pointer; /* Изменение курсора при наведении */
+    border-radius: 4px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход */
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049; /* Более темный зеленый при наведении */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Задаем фиксированную высоту строк таблицы для предотвращения "прыжков" */
+table tbody tr {
+    min-height: 50px; /* Убедитесь, что высота подходит для вашего контента */
+    transition: all 0.3s ease; /* Плавный переход для анимации */
+    position: sticky;
+}
+
+
+
+
+
+
+
+
+

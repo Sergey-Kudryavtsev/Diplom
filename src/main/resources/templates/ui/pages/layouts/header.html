@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+<!--    <link rel="stylesheet" href="/styles/header.css"/>-->
+</head>
+<body>
+    <th:block th:fragment="header">
+        <header class="logical_block">
+
+            <div class="nav_icon">
+                <div class="hamburger" id="hamburger">
+                    <img src="/img/header/hamburger.png">
+                </div>
+            </div>
+            <div class="menu" id="menu">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/cart">Корзина</a></li>
+                    <li><a href="/registration">Регистрация</a></li>
+                    <li><a href="/profile">Профиль</a></li>
+                </ul>
+            </div>
+
+
+            <div class="nav_icon"><a href="/filter/page"><img src="/img/header/search.png"></a></div>
+            <div class="phat_logo"><a href="/"><img src="/img/header/header_logo.png"></a></div>
+
+            <th:block>
+                <div th:class="nav_icon">
+                    <a href="/admin" sec:authorize="hasRole('ROLE_ADMIN')">
+                        <img src="/img/header/admin.png">
+                    </a>
+                    <a href="/cart" sec:authorize="hasRole('USER')">
+                        <img src="/img/header/cart.png">
+                        <span class="cart-count" id="cart-count" th:text="${cartCount}">0</span> <!-- Счетчик позиций -->
+                    </a>
+                </div>
+            </th:block>
+            <div class="nav_icon">
+                <a sec:authorize="isAnonymous()" href="/login"><img src="/img/header/lock.png"></a>
+                <a sec:authorize="isAuthenticated()" href="/profile"><img src="/img/header/user.png"></a>
+            </div>
+        </header>
+    </th:block>
+</body>
+</html>
+

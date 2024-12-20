@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>PHAT_STORE</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<wrapper>
+    <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+    <main>
+        <form method="get" action="/filter" class="search">
+            <select name="brandId">
+                <option></option>
+                <option th:each="brand:${brands}" th:value="${brand.id}">
+                  [[${brand.name}]]
+                </option>
+            </select>
+            <select name="categoryId" >
+                <option></option>
+                <option th:each="category:${categories}" th:value="${category.id}">
+                    [[${category.name}]]
+                </option>
+            </select>
+            <input type="text" name="minPrice" th:value="${minPrice}">
+            <input type="text" name="maxPrice" th:value="${maxPrice}">
+            <input type="submit" value="Поиск">
+        </form>
+    </main>
+    <div class="logo">
+        <img src="/img/header/logo.jpg">
+    </div>
+</wrapper>
+</body>
+<script src="/scripts/menu.js"></script>
+</html>

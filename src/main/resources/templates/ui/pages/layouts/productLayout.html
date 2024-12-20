@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<th:block th:fragment="productLayout(products)">
+    <div class="shop">
+        <div class="categories">
+            <th:block th:each="product: ${products}">
+                <a th:href="@{'/product?productId=' + ${product.id}}">
+                    <div class="category">
+                        <div class="category_img">
+                            <img th:src="@{'/img/shop/' + ${product.category.name + '/'} + ${product.model} + '.webp'}">
+                        </div>
+                        <div class="category_caption">
+                            [[${product.model}]]
+                        </div>
+                    </div>
+                </a>
+            </th:block>
+        </div>
+        <div class="brands"></div>
+    </div>
+</th:block>
+</body>
+</html>

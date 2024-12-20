@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="stylesheet" href="/styles/registration.css"/>
+</head>
+<body>
+<wrapper>
+    <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+
+    <form th:action="@{/registration}" method="post">
+        <h2>Регистрация</h2>
+        <input type="text" name="name" placeholder="Имя" required />
+        <input type="text" name="email" placeholder="Email" required />
+        <input type="password" name="password" placeholder="Пароль" required />
+        <input type="password" class="parameterInput" name="passwordRepeat" placeholder="Повторите пароль" required />
+        <input type="text" name="phone" placeholder="Номер телефона" required />
+        <input type="text" name="address" placeholder="Город,улица,дом" required />
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+
+    <div th:if="${errorMessage}" th:text="${errorMessage}"></div>
+</wrapper>
+</body>
+<script src="/scripts/menu.js"></script>
+</html>

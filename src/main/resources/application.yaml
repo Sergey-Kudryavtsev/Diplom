@@ -1,0 +1,23 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:6543/java_311
+    username: admin
+    password: admin
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    show-sql: true
+  mail:
+    host: smtp.yandex.ru
+    port: 465
+    protocol: smtps
+    username: klozevitz.test@yandex.ru
+    password: gnnijvcaadwjfmfp
+
+server:
+  port: 8080
+
+debug: true
+

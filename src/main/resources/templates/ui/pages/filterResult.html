@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<wrapper>
+    <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+    <main>
+        <th:block th:insert="~{/ui/pages/layouts/productLayout.html::productLayout(${products})}"/>
+        <div class="logo">
+            <img src="/img/header/logo.jpg">
+        </div>
+    </main>
+</wrapper>
+
+</body>
+<script src="/scripts/menu.js"></script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <link rel="stylesheet" href="/styles/login.css"/>
+</head>
+<body>
+    <wrapper>
+        <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+
+        <form method="post" action="/login">
+            <input type="text" name="username" placeholder="email">
+            <input type="password" name="password" placeholder="password">
+            <input type="submit" class="submitInput" value="login">
+        <a href="/registration">Регистрация</a>
+        </form>
+    </wrapper>
+    </body>
+<script src="/scripts/menu.js"></script>
+</html>

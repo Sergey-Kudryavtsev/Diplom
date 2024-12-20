@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>PHAT_STORE</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+    <!--    <link rel="stylesheet" href="/styles/header.css"/>-->
+</head>
+<body>
+<wrapper>
+    <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+    <main class="main">
+
+        <div class="category_img">
+            <img th:src="@{'/img/shop/' + ${product.category.name + '/'} + ${product.model} + '.webp'}">
+        </div>
+
+        <div class="category_caption">
+            <span>[[${product.model}]]</span>
+        </div>
+        <div class="category_caption">
+            <span>[[${product.price}]]</span>
+        </div>
+
+        <div class="controls">
+            <select id="select_color">
+                <option th:each="color: ${colors}">[[${color}]]</option>
+            </select>
+            <select id="select_size">
+                <option th:each="memorySize: ${memorySizes}">[[${memorySize}]]</option>
+            </select>
+        </div>
+            <div class="button_group">
+                <input type="text" id="input_productId" th:value="${product.id}" hidden>
+                <button th:onclick="'addToCart(' + ${product.id} + ')'" sec:authorize="hasRole('USER')">В корзину</button>
+                <button onclick="window.history.back();">Назад</button>
+            </div>
+    </main>
+    <div class="logo">
+        <img src="/img/header/logo.jpg">
+    </div>
+</wrapper>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/scripts/product.js"></script>
+<script src="/scripts/menu.js"></script>
+<script src="/scripts/addInCart.js"></script>
+</html>
+

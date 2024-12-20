@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>PHAT_STORE</title>
+    <link rel="stylesheet" href="/styles/style.css"/>
+</head>
+<body>
+<wrapper>
+    <th:block th:insert="~{/ui/pages/layouts/header.html::header}"/>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Фото</th>
+                    <th>Модель</th>
+                    <th>Количество</th>
+                    <th>Цена одного товара</th>
+                    <th>Сумма</th>
+                    <th>Добавить/Убрать товар</th>
+                    <th>Удалить все</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:if="${#lists.isEmpty(cart.positions)}">
+                    <td colspan="5">Корзина пуста</td>
+                </tr>
+                <tr th:each="position: ${cart.positions}">
+                    <td>
+                    <img class="cart_img" th:src="@{'/img/shop/' + ${position.stockPosition.product.category.name + '/'}
+                        + ${position.stockPosition.product.model} + '.webp'}">
+                    </td>
+                    <td>
+                        [[${position.stockPosition.product.model}]]
+                    </td>
+                    <td>
+                        [[${position.amount}]]
+                    </td>
+                    <td>
+                        [[${position.getUnitPrice()}]]
+                    </td>
+                    <td>
+                        [[${position.getTotalPrice()}]]
+                    </td>
+
+
+                    <td>
+                        <form method="post" action="/cart/addTake">
+                            <input type="text" name="color" th:value="${position.stockPosition.color}" hidden>
+                            <input type="text" name="memorySize" th:value="${position.stockPosition.memorySize}" hidden>
+                            <input type="text" name="productId" th:value="${position.stockPosition.product.id}" hidden>
+                            <input type="submit" value="+">
+                        </form>
+
+                        <form method="post" action="/cart/drop">
+                            <input type="text" name="positionId" th:value="${position.id}" hidden>
+                            <input type="submit" value="-">
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" action="/cart/delete">
+                            <input type="text" name="positionId" th:value="${position.id}" hidden>
+                            <input type="submit" value="X">
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+<!--        форма отображения ошибок покупки-->
+        <form th:if="${payError != null || deliveryError != null}" method="post" action="/cart/match">
+            <span>[[${payError != null ? payError : deliveryError}]]</span>
+            <div th:if="${deliveryError != null}">
+                <span>Оставить только товары, которые есть в наличии</span>
+                <input type="submit" value="Оставить">
+            </div>
+        </form>
+
+        <tr>
+            <td colspan="4">Общая сумма:</td>
+            <td colspan="3">[[${totalPrice}]]</td>
+        </tr>
+
+        <form th:if="${!cart.positions.isEmpty()}" method="post" action="/cart/pay">
+            <input type="submit" value="ОПЛАТИТЬ">
+        </form>
+    </main>
+    <div class="logo">
+        <img src="/img/header/logo.jpg">
+    </div>
+
+</wrapper>
+</body>
+<script src="/scripts/menu.js"></script>
+<script src="/scripts/addInCart.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/scripts/product.js"></script>
+</html>
