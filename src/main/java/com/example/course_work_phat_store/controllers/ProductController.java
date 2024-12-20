@@ -69,11 +69,6 @@ public class ProductController {
                 .orElse(null); // Возвращаем null, если корзина не найдена
     }
 
-//    private ApplicationUser currentApplicationUser() {
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//        return applicationUserService.loadUserByUsername(email);
-//    }
-
     @GetMapping("/back")
     public String pageBack() {
         return "pageBack";

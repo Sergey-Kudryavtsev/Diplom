@@ -56,11 +56,6 @@ public class ViewController {
                 .findAny().orElse(null);
     }
 
-//    public ApplicationUser currentApplicationUser() {
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//        return applicationUserService.loadUserByUsername(email);
-//    }
-
     @GetMapping("/login")
     public String loginPage() {
         return "ui/pages/login";

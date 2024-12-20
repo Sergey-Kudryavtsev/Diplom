@@ -136,8 +136,6 @@ public class CartController {
                 .sorted(Comparator.comparingInt(o ->
                         o.getPositions().stream().mapToInt(OrderPosition::getId).min().orElse(Integer.MAX_VALUE)))
                 .findAny().get();
-//                .findFirst() // Найти первую корзину (если есть)
-//                .orElse(new Order()); // Если корзина отсутствует, возвращаем новую
     }
 
     private ApplicationUser currentApplicationUser() {

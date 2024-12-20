@@ -13,28 +13,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-//@Controller
-//@RequestMapping("/")
-//@RequiredArgsConstructor
-//public class UserController {
-//    private final PasswordEncoder passwordEncoder;
-//    private final ApplicationUserRepository applicationUserRepository;
-//
-//    @PostMapping("/registration")
-//    public String registration(@RequestParam String email, @RequestParam String password, RedirectAttributes redirectAttributes) {
-//        Optional<ApplicationUser> loadedUser = applicationUserRepository.findApplicationUserByProfileEmail(email);
-//        if (!loadedUser.isPresent()) {
-//            ApplicationUser applicationUser = new ApplicationUser(email, passwordEncoder.encode(password));
-//            applicationUserRepository.save(applicationUser);
-//            return "redirect:/";
-//        } else {
-//            // Добавляем сообщение в FlashAttributes
-//            redirectAttributes.addFlashAttribute("errorMessage", "Пользователь с таким email уже зарегистрирован.");
-//            return "redirect:/registration";
-//        }
-//    }
-//}
-
 @Controller
 @RequestMapping("/")
 @RequiredArgsConstructor
@@ -69,30 +47,3 @@ public class UserController {
         }
     }
 }
-
-//@Controller
-//@RequestMapping("/")
-//@RequiredArgsConstructor
-//public class UserController {
-//    private final PasswordEncoder passwordEncoder;
-//    private final ApplicationUserRepository applicationUserRepository;
-//
-//    @PostMapping("/registration")
-//    public String registration(@RequestParam String email,
-//                               @RequestParam String password,
-//                               @RequestParam String phone,
-//                               @RequestParam String address,
-//                               RedirectAttributes redirectAttributes) {
-//        Optional<ApplicationUser> loadedUser = applicationUserRepository.findApplicationUserByProfileEmail(email);
-//        if (!loadedUser.isPresent()) {
-//            // Создаём нового пользователя с новыми полями
-//            ApplicationUser applicationUser = new ApplicationUser(email, passwordEncoder.encode(password), phone, address);
-//            applicationUserRepository.save(applicationUser);
-//            return "redirect:/";
-//        } else {
-//            // Добавляем сообщение в FlashAttributes
-//            redirectAttributes.addFlashAttribute("errorMessage", "Пользователь с таким email уже зарегистрирован.");
-//            return "redirect:/registration";
-//        }
-//    }
-//}
