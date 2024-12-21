@@ -6,7 +6,7 @@ const inputProductId = document.getElementById('input_productId');
 
 const updateCartCount = () => {
     $.get('/cart/count', (count) => {
-        document.getElementById('cart-count').innerText = count; // Обновляем текст счетчика
+        document.getElementById('cart-count').innerText = count;
     });
 };
 
@@ -20,20 +20,20 @@ const addToCartRequest = () => $.ajax({
         productId: inputProductId.value
     },
     success: (response) => {
-        updateCartCount(); // Обновляем счетчик после добавления
+        updateCartCount();
     },
     error: (xhr, status, error) => {
         alert('Ошибка при добавлении товара в корзину. Пожалуйста, попробуйте снова');
     }
 });
 
-// Добавляем обработчик события для загрузки страницы
+
 document.addEventListener('DOMContentLoaded', () => {
-    updateCartCount(); // Обновляем счетчик при загрузке страницы
+    updateCartCount();
 });
 
-// Привязываем событие нажатия к кнопке добавления товара
-const button = document.querySelector('button'); // Замените селектор на свой, если нужно
+
+const button = document.querySelector('button');
 if(button) {
     button.addEventListener('click', addToCartRequest);
 }

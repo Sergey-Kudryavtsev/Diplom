@@ -69,14 +69,13 @@ import java.util.Optional;
 public class ProfileController {
     private final ApplicationUserRepository applicationUserRepository;
     private final ApplicationUserService applicationUserService;
-    private final OrderService orderService;
 
-    // Метод для отображения страницы профиля
+
+
     @GetMapping
     public String profilePage(Model model, Authentication authentication) {
-        // Проверяем, аутентифицирован ли пользователь
         if (authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getName())) {
-            return "redirect:/login"; // Если пользователь не аутентифицирован, перенаправляем на страницу логина
+            return "redirect:/login";
         }
 
         String email = authentication.getName();
@@ -88,7 +87,7 @@ public class ProfileController {
             return "ui/pages/profile";
         }
 
-        return "redirect:/login"; // Если пользователь не найден, перенаправляем на страницу логина
+        return "redirect:/login";
     }
 
     // Метод для обновления данных пользователя
@@ -96,9 +95,8 @@ public class ProfileController {
     public String updateProfile(@ModelAttribute ApplicationUser updatedUser,
                                 Authentication authentication,
                                 RedirectAttributes redirectAttributes) {
-        // Проверяем, аутентифицирован ли пользователь
         if (authentication == null || !authentication.isAuthenticated() || "anonymousUser".equals(authentication.getName())) {
-            return "redirect:/login"; // Если пользователь не аутентифицирован, перенаправляем на страницу логина
+            return "redirect:/login";
         }
 
         String email = authentication.getName();
@@ -126,7 +124,7 @@ public class ProfileController {
             Order cart = currentUserCart(currentUser);
             cartCount = (cart != null) ? cart.getPositions().size() : 0;
         }
-        model.addAttribute("cartCount", cartCount); // Добавляем количество товаров в модель
+        model.addAttribute("cartCount", cartCount);
     }
 
     private ApplicationUser currentApplicationUser() {
@@ -137,7 +135,7 @@ public class ProfileController {
     private Order currentUserCart(ApplicationUser currentUser) {
         return currentUser.getProfile().getOrders().stream()
                 .filter(o -> o.getStatus().equals(Status.CART))
-                .findAny().orElse(null); // Возвращаем null, если корзина не найдена
+                .findAny().orElse(null);
     }
 }
 

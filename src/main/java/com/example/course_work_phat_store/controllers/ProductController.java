@@ -25,14 +25,12 @@ import java.util.Optional;
 
 public class ProductController {
     private final ProductService productService;
-    private final ApplicationUserService applicationUserService; // Добавляем для работы с пользователем
-    private final OrderService orderService; // Добавляем для работы с корзиной
+    private final ApplicationUserService applicationUserService;
+
 
     @GetMapping
     public String productPage(Model model, @RequestParam Integer productId) {
         if (productId == null) {
-            // Если productId не был передан, можно обработать это различными способами,
-            // например, перенаправить на страницу с ошибкой или отобразить сообщение.
             model.addAttribute("error", "Отсутствует обязательный параметр запроса productId");
             return "ui/pages/exception/error";
         }
@@ -43,11 +41,10 @@ public class ProductController {
             model.addAttribute("memorySizes", Arrays.stream(MemorySize.values()).map(Enum::name));
             model.addAttribute("colors", Arrays.stream(Color.values()).map(Enum::name));
         } else {
-            // Если продукт не найден, также можно установить сообщение об ошибке
             model.addAttribute("error", "Продукт не найден");
-            return "ui/pages/exception/error"; // Или другая страница, где обрабатываются ошибки
+            return "ui/pages/exception/error";
         }
-        updateCartCount(model); // Обновляем счетчик корзины
+        updateCartCount(model);
         return "ui/pages/product";
     }
 
@@ -57,9 +54,9 @@ public class ProductController {
             ApplicationUser currentUser = applicationUserService.loadUserByUsername(authentication.getName());
             Order cart = currentUserCart(currentUser);
             int cartCount = (cart != null) ? cart.getPositions().size() : 0;
-            model.addAttribute("cartCount", cartCount); // Добавляем количество товаров в модель
+            model.addAttribute("cartCount", cartCount);
         } else {
-            model.addAttribute("cartCount", 0); // Устанавливаем 0 для незарегистрированных пользователей
+            model.addAttribute("cartCount", 0);
         }
     }
 

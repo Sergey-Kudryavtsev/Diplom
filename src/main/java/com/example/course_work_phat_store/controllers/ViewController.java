@@ -9,7 +9,6 @@ import com.example.course_work_phat_store.model.entities.stock.dto.CategoryDTO;
 import com.example.course_work_phat_store.model.secuirty.ApplicationUser;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +21,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ViewController {
     private final CategoryService categoryService;
-    private final ApplicationUserService applicationUserService; // Добавляем для доступа к пользователю
-    private final OrderService orderService; // Добавляем для доступа к корзине
+    private final ApplicationUserService applicationUserService;
 
     @GetMapping
     public String index(Model model, Authentication authentication) {
-        updateCartCount(model, authentication); // Обновляем счетчик корзины
+        updateCartCount(model, authentication);
 
         List<CategoryDTO> categories = categoryService.findAll().stream()
                 .map(category -> CategoryDTO.builder()
@@ -37,7 +35,7 @@ public class ViewController {
                 .toList();
 
         model.addAttribute("categories", categories);
-        return "ui/pages/index"; // Возвращаем главную страницу
+        return "ui/pages/index";
     }
 
     private void updateCartCount(Model model, Authentication authentication) {
@@ -47,7 +45,7 @@ public class ViewController {
             Order cart = currentUserCart(currentUser);
             cartCount = (cart != null) ? cart.getPositions().size() : 0;
         }
-        model.addAttribute("cartCount", cartCount); // Добавляем количество товаров в модель
+        model.addAttribute("cartCount", cartCount);
     }
 
     private Order currentUserCart(ApplicationUser currentUser) {

@@ -71,7 +71,6 @@ public class OrderServiceImplementation implements OrderService {
         // получаем 1 единицу товара со склада
         Optional<StockPosition> stockPositionToBuy = stockPositionService.getOnePosition(color, memorySize, productId);
         // на основе позиции со склада, которую собрался приобретать покупатель, формируем запись в чеке (корзине)
-//        if (stockPositionToBuy.isPresent()) {
         if (!stockPositionToBuy.isPresent()) {
             throw new IllegalArgumentException("Такого товара нет в наличии: цвет=" + color + ", память=" + memorySize + ", ID товара=" + productId);
         }

@@ -26,23 +26,23 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: #f8f8f8; /* Цвет фона заголовка */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Тень под заголовком */
+    background-color: #f8f8f8;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cart-count {
-    position: absolute; /* Позиционирование для наложения на иконку */
-    top: -10px; /* Поднимаем счетчик немного выше */
-    right: -10px; /* Сдвигаем счетчик внутрь иконки, если нужно */
-    background-color: red; /* Цвет фона для выделения */
-    color: white; /* Цвет текста */
-    border-radius: 50%; /* Закругленный угол */
-    padding: 1px 3px; /* Отступы внутри */
-    font-size: 12px; /* Размер шрифта */
-    min-width: 11px; /* Минимальная ширина, если счетчик больше 9 */
-    height: 20px; /* Высота счетчика для выравнивания */
-    text-align: center; /* Выравнивание текста по центру */
-    line-height: 20px; /* Вертикальное центрирование текста */
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 1px 3px;
+    font-size: 12px;
+    min-width: 11px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
 }
 
 /* Стиль для значков навигации */
@@ -54,21 +54,21 @@ header {
 
 /* Стиль для изображений значков */
 .nav_icon img {
-    width: 50px; /* Ширина значка */
-    height: 50px; /* Высота значка */
-    margin: 0 5px; /* Отступ между значками */
-    transition: transform 0.2s; /* Плавный переход */
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    transition: transform 0.2s;
 }
 
 /* Эффект при наведении на значки */
 .nav_icon img:hover {
-    transform: scale(1.1); /* Увеличение значка при наведении */
+    transform: scale(1.1);
 }
 
 /* Стиль для логотипа */
 .phat_logo img {
-    max-width: 150px; /* Максимальная ширина логотипа */
-    height: auto; /* Автоматическая высота */
+    max-width: 150px;
+    height: auto;
 }
 
 /* Стиль для значка корзины и администратора */
@@ -80,7 +80,7 @@ header {
 
 /* Стиль для изображения при наведении */
 .nav_icon a:hover img {
-    opacity: 0.8; /* Уменьшение яркости при наведении */
+    opacity: 0.8;
 }
 
 .logo {
@@ -89,36 +89,36 @@ header {
 }
 
 .logo img {
-    max-width: 100%; /* Адаптивное изображение */
-    height: auto; /* Сохранение пропорций */
+    max-width: 100%;
+    height: auto;
 }
 
 /*Search*/
 .search {
-    display: flex; /* Используем flexbox для размещения элементов в строку */
-    align-items: center; /* Выравнивание по центру по вертикали */
-    justify-content: center; /* Выравнивание по центру по горизонтали, можно настроить */
-    margin: 20px 0; /* Отступы сверху и снизу */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .search select, .search input[type="text"], .search input[type="submit"] {
-    margin: 0 5px; /* Отступы между элементами */
-    padding: 5px; /* Внутренние отступы для всех элементов */
+    margin: 0 5px;
+    padding: 5px;
 }
 
 .search input[type="text"] {
-    width: 100px; /* Ширина полей для цены, можно подстроить под дизайн */
+    width: 100px;
 }
 
 .search input[type="submit"] {
-    background-color: #4CAF50; /* Цвет кнопки поиск */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Убираем границу */
-    cursor: pointer; /* Указатель при наведении */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
 
 .search input[type="submit"]:hover {
-    background-color: #45a049; /* Цвет кнопки при наведении */
+    background-color: #45a049;
 }
 
 /*Product*/
@@ -157,9 +157,8 @@ hr {
     overflow: hidden;
     text-align: center;
     transition: transform 0.3s;
-    width: 220px; /* Ширина категории */
+    width: 220px;
     height: 200px;
-    /*height: 180px;*/
 }
 
 .category:hover {
@@ -168,18 +167,15 @@ hr {
 
 .category_img {
     display: flex;
-    justify-content: center; /* Центрируем изображение по горизонтали */
-    align-items: center; /* Центрируем изображение по вертикали */
-    height: 150px; /* Фиксированная высота для изображений */
+    justify-content: center;
+    align-items: center;
+    height: 150px;
 }
 
 .category_img img {
-    /*padding: 20px;*/
-    /*width: 30%;*/
-    /*height: 30%;*/
-    max-width: 100%; /* Ограничиваем ширину изображений */
-    max-height: 100%; /* Ограничиваем высоту изображений */
-    object-fit: contain; /* Подгоняем изображение по размеру блока */
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 
 }
 
@@ -190,42 +186,42 @@ hr {
     color: #333;
 }
 .controls {
-    display: flex; /* Используем Flexbox для выравнивания элементов */
+    display: flex;
     justify-content: center;
-    align-items: center; /* Центрируем элементы по вертикали */
-    gap: 20px; /* Отступы между элементами */
-    margin-top: 20px; /* Отступ сверху для отделения от других элементов */
+    align-items: center;
+    gap: 20px;
+    margin-top: 20px;
 }
 
 .button_group {
-    display: flex; /* Создает flex-контейнер для кнопок */
-    gap: 10px; /* Отступ между кнопками */
+    display: flex;
+    gap: 10px;
 }
 
 button {
-    padding: 10px 20px; /* Добавление внутреннего отступа для кнопок */
-    font-size: 12pt; /* Размер шрифта кнопок */
-    border: none; /* Убираем стандартную рамку */
-    border-radius: 5px; /* Скругление углов */
-    background-color: #007bff; /* Цвет фона кнопок */
-    color: white; /* Цвет текста на кнопках */
-    cursor: pointer; /* Указатель при наведении на кнопки */
-    transition: background-color 0.3s; /* Плавный переход цвета фона */
+    padding: 10px 20px;
+    font-size: 12pt;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
     margin: 10px;
 }
 
 button:hover {
-    background-color: #0056b3; /* Цвет кнопок при наведении */
+    background-color: #0056b3;
 }
 
 /* Стили для выпадающих списков */
 select {
-    padding: 10px; /* Внутренние отступы для выпадающих списков */
-    border: 1px solid #ddd; /* Рамка для выпадающего списка */
-    border-radius: 5px; /* Скругление углов */
-    font-size: 9pt; /* Размер шрифта */
-    background-color: #f8f9fa; /* Цвет фона */
-    color: #333; /* Цвет текста */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 9pt;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
 /*Menu*/
@@ -241,7 +237,7 @@ select {
 }
 
 .menu {
-    display: none; /* Скрываем меню по умолчанию */
+    display: none;
     position: absolute;
     top: 70px;
     left: 100px;
@@ -302,37 +298,36 @@ tr:hover {
 }
 
 .cart_img {
-    width: 50px; /* Задайте желаемую ширину */
-    height: auto; /* Сохраните пропорции */
+    width: 50px;
+    height: auto;
 }
 
 form {
-    display: inline; /* Размещаем кнопки в одной строке */
+    display: inline;
 }
 
 input[type="submit"] {
-    background-color: #4CAF50; /* Зеленый фон */
-    color: white; /* Белый текст */
-    border: none; /* Убираем рамки */
-    padding: 8px 12px; /* Отступы вокруг текста */
-    margin: 4px 0; /* Внешние отступы */
-    cursor: pointer; /* Изменение курсора при наведении */
-    border-radius: 4px; /* Закругленные углы */
-    transition: background-color 0.3s; /* Плавный переход */
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin: 4px 0;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049; /* Более темный зеленый при наведении */
+    background-color: #45a049;
 }
 
 .hidden {
     display: none;
 }
 
-/* Задаем фиксированную высоту строк таблицы для предотвращения "прыжков" */
 table tbody tr {
-    min-height: 50px; /* Убедитесь, что высота подходит для вашего контента */
-    transition: all 0.3s ease; /* Плавный переход для анимации */
+    min-height: 50px;
+    transition: all 0.3s ease;
     position: sticky;
 }
 

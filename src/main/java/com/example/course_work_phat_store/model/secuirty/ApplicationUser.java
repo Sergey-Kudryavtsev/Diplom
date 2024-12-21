@@ -29,9 +29,9 @@ public class ApplicationUser extends BaseEntity {
     @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private Role role;
-    @Column(name = "phone") // Новое поле для хранения телефона
+    @Column(name = "phone")
     private String phone;
-    @Column(name = "address") // Новое поле для хранения адреса
+    @Column(name = "address")
     private String address;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
@@ -41,8 +41,8 @@ public class ApplicationUser extends BaseEntity {
         this.username = "";
         this.password = password;
         this.role = role;
-        this.phone = phone; // Сохраняем телефон
-        this.address = address; // Сохраняем адрес
+        this.phone = phone;
+        this.address = address;
         this.profile = Profile.builder()
                 .user(this)
                 .email(email)

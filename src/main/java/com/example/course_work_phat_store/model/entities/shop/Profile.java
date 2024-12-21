@@ -20,7 +20,7 @@ public class Profile extends BaseEntity {
     private String name;
     @Column(name = "email", unique = true)
     private String email;
-    @Column(name = "phone") // Новое поле для хранения телефона
+    @Column(name = "phone")
     private String phone;
 
     @Column(name = "address")
@@ -39,7 +39,6 @@ public class Profile extends BaseEntity {
     }
 
     public boolean pay(double price) {
-        // логика оплаты через интерфейс платежной системы
         return true;
     }
 }

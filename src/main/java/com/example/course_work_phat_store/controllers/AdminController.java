@@ -21,8 +21,8 @@ import java.util.List;
 @RequiredArgsConstructor
 public class AdminController {
     private final OrderService orderService;
-    private final CategoryService categoryService; // Сервис для работы с категориями
-    private final ProductService productService; // Сервис для работы с товарами
+    private final CategoryService categoryService;
+    private final ProductService productService;
 
     @GetMapping
     public String adminsPage(Model model) {

@@ -25,7 +25,7 @@ public class Order extends BaseEntity {
     @ManyToOne
     private Profile profile;
     @Column(name = "total_price")
-    private double totalPrice; // Поле для хранения общей стоимости
+    private double totalPrice;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "order_id")
     private Set<OrderPosition> positions;

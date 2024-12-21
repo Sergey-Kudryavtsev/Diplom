@@ -87,12 +87,12 @@ public class CartController {
     public int getCartCount() {
         ApplicationUser currentUser = currentApplicationUser();
         Order cart = currentUserCart(currentUser);
-        return cart != null ? cart.getPositions().size() : 0;// Возвращаем количество позиций
+        return cart != null ? cart.getPositions().size() : 0;
     }
 
     public double calculateTotalPrice(Order cart) {
         return cart.getPositions().stream()
-                .mapToDouble(OrderPosition::getTotalPrice) // Используем метод getTotalPrice() напрямую
+                .mapToDouble(OrderPosition::getTotalPrice)
                 .sum();
     }
 

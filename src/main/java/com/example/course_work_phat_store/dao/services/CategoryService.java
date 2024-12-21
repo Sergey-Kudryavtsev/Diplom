@@ -7,6 +7,4 @@ public interface CategoryService extends DAO<Category> {
     void addCategory(String name);
 
     void deleteCategory(int categoryId);
-
-//    void editCategory(int categoryId, String newName);
 }

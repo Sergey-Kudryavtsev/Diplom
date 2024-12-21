@@ -10,7 +10,7 @@ function refreshCartCount() {
     }
 }
 
-// Пример функции добавления товара в корзину
+// функции добавления товара в корзину
 function addToCart(productId) {
     cartItemCount++;
     refreshCartCount();

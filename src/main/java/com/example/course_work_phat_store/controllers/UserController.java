@@ -31,7 +31,6 @@ public class UserController {
             @RequestParam String address,
             RedirectAttributes redirectAttributes) {
 
-        // Проверка регулярного выражения для телефона
         if (!Pattern.matches(PHONE_REGEX, phone)) {
             redirectAttributes.addFlashAttribute("errorMessage", "Неверный формат номера телефона.");
             return "redirect:/registration";

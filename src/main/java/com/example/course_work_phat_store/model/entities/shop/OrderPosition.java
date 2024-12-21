@@ -36,27 +36,13 @@ public class OrderPosition extends BaseEntity {
     }
 
     public double getUnitPrice() {
-        // Цена за единицу товара, связанного со складом
         return stockPosition != null && stockPosition.getProduct() != null
                 ? stockPosition.getProduct().getPrice()
                 : 0.0;
     }
 
     public double getTotalPrice() {
-        // Общая сумма = количество * цена за единицу
         return amount != null ? amount * getUnitPrice() : 0.0;
     }
-
-//    public double getUnitPrice() {
-//        return (amount != null && amount > 0) ? price / amount : 0.0;
-//    }
-//
-//    public double getTotalPrice() {
-//        return amount != null ? amount * getUnitPrice() : 0.0;
-//    }
-
-
-
-
 }
 

@@ -42,10 +42,8 @@ public class StockPositionServiceImplementation implements StockPositionService 
 
     @Override
     public Optional<StockPosition> getOnePosition(String color, String memorySize, Integer productId) {
-        // по переданным данным мы ищем товар на складе
         StockPosition stockPositionToBuy = repo.findStockPositionByColorAndSizeAndProductId(color, memorySize, productId);
         if (stockPositionToBuy.getAmount() > 0) {
-            // сохранение "полки" с данным товаром
             return Optional.of(repo.save(stockPositionToBuy));
         }
         return Optional.empty();

@@ -26,8 +26,7 @@ public class FilterController {
     private final CategoryService categoryService;
     private final BrandService brandService;
     private final ProductService productService;
-    private final ApplicationUserService applicationUserService; // Для работы с пользователем
-    private final OrderService orderService; // Для работы с корзиной
+    private final ApplicationUserService applicationUserService;
 
     @GetMapping
     public String filter(Model model,
@@ -46,7 +45,7 @@ public class FilterController {
             switchFilter(model, categoryId, brandId, minPrice, maxPrice);
         }
 
-        return "ui/pages/filterResult"; // Или ваша страница, которая должна отобразиться после фильтрации
+        return "ui/pages/filterResult";
     }
 
     private void updateCartCount(Model model) {
@@ -56,16 +55,11 @@ public class FilterController {
             ApplicationUser currentUser = applicationUserService.loadUserByUsername(authentication.getName());
             Order cart = currentUserCart(currentUser);
             int cartCount = (cart != null) ? cart.getPositions().size() : 0;
-            model.addAttribute("cartCount", cartCount); // Добавляем количество товаров в модель
+            model.addAttribute("cartCount", cartCount);
         } else {
             model.addAttribute("cartCount", 0); // Устанавливаем 0 для незарегистрированных пользователей
         }
     }
-
-//    private ApplicationUser currentApplicationUser() {
-//        String email = SecurityContextHolder.getContext().getAuthentication().getName();
-//        return applicationUserService.loadUserByUsername(email);
-//    }
 
     private Order currentUserCart(ApplicationUser currentUser) {
         return currentUser.getProfile().getOrders().stream()
@@ -113,7 +107,7 @@ public class FilterController {
 
     @GetMapping("/page")
     public String pages(Model model) {
-        updateCartCount(model); // Обновляем количество товаров в корзине на этой странице
+        updateCartCount(model);
         List<Brand> allBrand = brandService.findAll();
         model.addAttribute("brands", allBrand);
 
@@ -126,7 +120,7 @@ public class FilterController {
         Double maxPrice = productService.maxPrice();
         model.addAttribute("maxPrice", maxPrice);
 
-        return "ui/pages/search"; // Или другая страница
+        return "ui/pages/search";
     }
 
     private void filterByCategoryId(Model model, Integer categoryId) {

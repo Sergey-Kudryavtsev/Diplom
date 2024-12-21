@@ -78,23 +78,20 @@ public class ProductServiceImplementation implements ProductService {
 
     @Override
     public void addProduct(String model, double price, int categoryId) {
-        // Найти категорию по ID
+
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new IllegalArgumentException("Категория не найдена"));
 
-        // Создать новый продукт
         Product product = new Product();
         product.setModel(model);
         product.setPrice(price);
         product.setCategory(category);
 
-        // Сохранить продукт в базе данных
         repo.save(product);
     }
 
     @Override
     public void deleteProduct(int productId) {
-        // Пытаемся найти продукт по ID и удаляем его, если он существует
         if (repo.existsById(productId)) {
             repo.deleteById(productId);
         } else {

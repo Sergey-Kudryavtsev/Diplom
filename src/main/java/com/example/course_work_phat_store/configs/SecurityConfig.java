@@ -40,14 +40,14 @@ public class SecurityConfig {
                 .formLogin(form ->
                         form
                                 .loginPage("/login")
-                                .defaultSuccessUrl("/", true) // true для всегда перенаправлять после успешного входа
+                                .defaultSuccessUrl("/", true)
                                 .failureUrl("/login?error=true")
                 )
                 .logout(logout -> logout
                                 .logoutUrl("/logout")
                                 .logoutSuccessUrl("/")
-                                .invalidateHttpSession(true) // не забываем завершить сессию
-                                .deleteCookies("JSESSIONID") // удаление cookies сессии
+                                .invalidateHttpSession(true)
+                                .deleteCookies("JSESSIONID")
                 );
 
         return httpSecurity.build();
